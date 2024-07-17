@@ -96,18 +96,35 @@ for i in range(3):
 
 game_status = {'x_positions' : [], 'o_positiions' : []}
 
-def empty_board():
+def empty_board(x_size = 3, y_size = 3, x_cell_size=5, y_cell_size=3):
     board = ''
 
-    for k in range(3):
-        for i in range(3):
-            board += ' ----------'
-        board += '\n'
-        for i in range(3):
-            board += '|           |           |          |'
-    for i in range(3):
-        board += ' ----------'
+    # for k in range(3):
+    #     for i in range(3):
+    #         board += ' ----------'
+    #     board += '\n'
+    #     for i in range(3):
+    #         board += '|           |           |          |'
+    # for i in range(3):
+    #     board += ' ----------'
     
+
+
+
+
+    #<------------------------------강사님 코드 -------------------->
+    hline = (' ' + '-' * x_cell_size) * x_size
+    # print(hline)
+
+    for y in range(y_size):
+        print(hline)
+        for z in range(y_cell_size):
+            for x in range(x_size):
+                print('|' + ' ' * x_cell_size , end='')
+            print('|')
+    print(hline)
+    
+    #<-----------------------------강사님 코드 --------------------->
     return board 
 
 
@@ -158,3 +175,6 @@ def display(game_status):
 
     
     pass
+
+if __name__ =='__main__':
+    empty_board(x_size = 4, y_size=6, x_cell_size = 7, y_cell_size=3)

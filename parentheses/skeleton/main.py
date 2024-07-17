@@ -182,6 +182,8 @@ def update_rule2_nodes(text, res):
     assert determine_if_rule2(text)
 
     matching_idx = find_matching_pair(text, 0)
+    # 이렇게 matching_idx선언 안하고
+    # 그냥 범위를 [1:-1] 로 해도 ㄱㅊ
 
     node_indices = [(0, matching_idx)]
 
@@ -212,6 +214,20 @@ def update_rule2_nodes(text, res):
 #     return res
 # <------------------------------------------------------------->
 
+
+# <-------------------------강사님 수업 코드-------------------->
+# def update_rule2_nodes(text, res):
+#     text_segments = []
+#     idx = 0
+
+#     while idx < len(text) - 1 :
+#         jdx = find_matching_pair(text, idx)
+#         text_segments.append((text[idx:jdx + 1], idx))
+#         idx = jdx + 1
+#     res['nodes'] = [parse_parentheses_with_offset(t, i) for t, i in text_segments]
+
+#     return res
+# <------------------------------------------------------------->
 
 def parse_parentheses(text):
     """For the given string, parse it in the form of dict. 

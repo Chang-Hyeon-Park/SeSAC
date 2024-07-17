@@ -104,7 +104,10 @@ def update_rule2_nodes(text, res):
         node_start_idx = matching_index + 1
         if node_start_idx == len(text) -1:
             break
-
+        matching_index = find_matching_pair(text, node_start_idx)
+        node_indices.append((node_start_idx, matching_index))
+    
+    res['nodes'] = [parse_parentheses_with_offset(text[start:end+1], start) for start, end in node_indices]
     return res 
 
 def parse_parentheses(text):
